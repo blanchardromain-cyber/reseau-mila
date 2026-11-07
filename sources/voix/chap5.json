@@ -1,0 +1,14 @@
+{
+  "chapitre": 5,
+  "plans": [
+    { "id": "5.0", "phrases": ["Chapitre cinq : vers Internet."] },
+    { "id": "5.1", "phrases": ["Mila veut maintenant recevoir des commandes en ligne.", "Il faut relier son réseau à Internet, le réseau des réseaux."] },
+    { "id": "5.2", "phrases": ["La ligne de l'opérateur arrive jusqu'au café.", "Mais sur cette ligne, le signal n'a pas la même forme que les données du réseau."] },
+    { "id": "5.3", "phrases": ["Le modem est le traducteur.", "Il convertit le signal de la ligne en données numériques utilisables par le réseau.", "Et dans l'autre sens aussi."] },
+    { "id": "5.4", "phrases": ["Le routeur est l'aiguilleur.", "Il lit l'adresse de chaque paquet de données,", "et l'oriente entre le réseau local et Internet."] },
+    { "id": "5.5", "phrases": ["Suivons deux paquets.", "Un fichier envoyé de l'ordinateur à la caisse passe seulement par le commutateur : il reste dans le café.", "Une page web, elle, passe par le commutateur, le routeur, le modem, puis la ligne de l'opérateur."] },
+    { "id": "5.6", "phrases": ["Attention aux pièges : le modem et le routeur ne stockent pas les sites web,", "et ne produisent pas d'électricité."] },
+    { "id": "5.7", "phrases": ["Au collège, la ligne arrive dans la baie technique, avec un modem et un routeur : le même chemin."] },
+    { "id": "5.8", "phrases": ["À vous : le modem ou le routeur, lequel lit l'adresse d'un paquet ?"] }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "chapitre": 1,
+  "plans": [
+    { "id": "1.0", "phrases": ["Le réseau de Mila.", "Chapitre un : le besoin."] },
+    { "id": "1.1", "phrases": ["Avant de commencer, retiens le code couleur.", "En orange, les données.", "En bleu, le réseau local.", "En gris, Internet.", "En rouge, la sécurité.", "Et en jaune, les pannes."] },
+    { "id": "1.2", "phrases": ["Voici Mila. Elle ouvre une boulangerie-café dans son village.", "Six appareils : caisse, ordinateur, imprimantes, écran du menu, terminal de paiement.", "Mais la caisse ne peut rien envoyer à l'imprimante : les appareils ne se parlent pas."] },
+    { "id": "1.3", "phrases": ["Comment relier les appareils de Mila ?", "Il existe trois façons de les organiser : on les appelle des topologies."] },
+    { "id": "1.4", "phrases": ["Première idée : le réseau en anneau. Six câbles, en boucle.", "Le message tourne dans un seul sens, d'appareil en appareil.", "Mais si une seule liaison est coupée…", "tout le réseau est bloqué."] },
+    { "id": "1.5", "phrases": ["Deuxième idée : le réseau maillé. Chaque appareil est relié à plusieurs autres.", "Un câble coupé ? L'information emprunte un autre chemin.", "Mais il faut quinze câbles pour six appareils : c'est très coûteux."] },
+    { "id": "1.6", "phrases": ["Troisième idée : le réseau en étoile. Au centre, un matériel supplémentaire.", "Un appareil, un câble : six câbles en tout.", "Si l'imprimante de cuisine tombe en panne, elle seule est isolée.", "Le reste du réseau continue de fonctionner."] },
+    { "id": "1.7", "phrases": ["Comparons.", "L'anneau : une coupure bloque tout.", "Le maillé : toujours un chemin de secours, mais quinze câbles.", "L'étoile : six câbles, et une panne n'arrête pas les autres.", "C'est le réseau le plus utilisé : à la maison, et au collège.", "En technologie, les seize postes élèves de la salle De Vinci et les douze postes de la salle Pesquet, mais aussi les postes des professeurs et les imprimantes, sont reliés en étoile."] },
+    { "id": "1.8", "phrases": ["Mila choisit l'étoile.", "À vous : quel matériel doit-elle placer au centre ?"] }
+  ]
+}

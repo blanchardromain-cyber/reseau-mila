@@ -1,0 +1,14 @@
+{
+  "chapitre": 2,
+  "plans": [
+    { "id": "2.0", "phrases": ["Chapitre deux : relier les appareils."] },
+    { "id": "2.1", "phrases": ["Au centre de l'étoile, Mila installe un commutateur, en anglais un souitch.", "Il relie les appareils entre eux grâce à des câbles Ethernet."] },
+    { "id": "2.2", "phrases": ["Regardons à l'intérieur d'un câble.", "Sous la gaine, huit petits fils torsadés deux par deux.", "Au bout, la prise R J quarante-cinq.", "C'est une liaison filaire : très rapide, stable et sécurisée."] },
+    { "id": "2.3", "phrases": ["Son inconvénient : il faut installer les câbles.", "Percer les murs, les faire passer partout."] },
+    { "id": "2.4", "phrases": ["Mais Mila veut prendre les commandes en terrasse, avec sa tablette.", "Pour cela : une borne wifi.", "Elle transmet les données sans fil, par ondes radio.", "Grande liberté de déplacement !"] },
+    { "id": "2.5", "phrases": ["Attention : plus la tablette s'éloigne de la borne, plus le signal faiblit.", "Le débit baisse…", "jusqu'à la déconnexion."] },
+    { "id": "2.6", "phrases": ["Et les obstacles, comme ce mur de pierre, atténuent le signal.", "Le débit du wifi est variable."] },
+    { "id": "2.7", "phrases": ["Résumons.", "Le câble : rapide, stable et sécurisé, mais il faut l'installer.", "Le wifi : grande liberté de déplacement, mais un débit sensible aux obstacles et à la distance.", "Au collège, c'est pareil : les postes des salles De Vinci et Pesquet sont câblés au commutateur,", "et la borne wifi relie les smartphones, les tablettes des élèves à besoins particuliers et l'imprimante trois D Bambou Lab A1."] },
+    { "id": "2.8", "phrases": ["À vous : l'ordinateur de gestion ne bouge jamais de son bureau.", "Câble ou wifi ? Pourquoi ?"] }
+  ]
+}

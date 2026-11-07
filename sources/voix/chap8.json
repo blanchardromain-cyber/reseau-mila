@@ -1,0 +1,12 @@
+{
+  "chapitre": 8,
+  "plans": [
+    { "id": "8.0", "phrases": ["Chapitre huit : du collège à la maison."] },
+    { "id": "8.1", "phrases": ["Le café de Mila, le collège, ta maison :", "trois réseaux différents, mais les mêmes éléments."] },
+    { "id": "8.2", "phrases": ["À la maison, un seul boîtier fait presque tout : la box Internet.", "Ouvrons-la.", "Elle regroupe un commutateur, une borne wifi, un modem, un routeur et une passerelle."] },
+    { "id": "8.3", "phrases": ["Au collège, ces éléments sont séparés dans la baie technique.", "À la maison, ils sont réunis dans la box."] },
+    { "id": "8.4", "phrases": ["Aujourd'hui, on ne relie plus seulement des ordinateurs :", "ampoules, thermostat, volets, enceintes, montres…", "Avec les objets connectés et la domotique, on parle de réseau numérique."] },
+    { "id": "8.5", "phrases": ["Alors, comment créer un réseau de données ?", "On relie les appareils avec un commutateur et une borne wifi.", "On gère les données et les utilisateurs avec un serveur.", "On s'ouvre sur Internet avec un modem et un routeur.", "Et on se protège avec une passerelle, un pare-feu et un antivirus."] },
+    { "id": "8.6", "phrases": ["À vous : chez toi, quels appareils sont reliés à la box ?", "Lesquels par câble, lesquels en wifi ?"] }
+  ]
+}

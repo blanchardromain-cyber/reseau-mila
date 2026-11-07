@@ -1,0 +1,14 @@
+{
+  "chapitre": 3,
+  "plans": [
+    { "id": "3.0", "phrases": ["Chapitre trois : le serveur."] },
+    { "id": "3.1", "phrases": ["Mila embauche Hugo et Inès.", "Problème : le fichier des commandes est enregistré sur l'ordinateur de gestion.", "Depuis la caisse, Hugo ne le trouve pas."] },
+    { "id": "3.2", "phrases": ["La solution : un serveur.", "C'est un ordinateur spécialisé, allumé en permanence, jour et nuit."] },
+    { "id": "3.3", "phrases": ["Premier rôle : le gardien.", "Inès tape son identifiant et son mot de passe.", "Le serveur vérifie son identité : c'est l'authentification. Accès autorisé.", "Avec un mauvais mot de passe…", "accès refusé."] },
+    { "id": "3.4", "phrases": ["Deuxième rôle : l'armoire.", "Quand Mila enregistre un fichier, il est stocké sur le serveur, dans son espace personnel.", "Elle peut aussi le placer dans l'espace commun, consultable par tous les utilisateurs reconnus du réseau, s'ils sont autorisés.", "Les fichiers sont centralisés."] },
+    { "id": "3.5", "phrases": ["Mila passe à la caisse et se connecte : son fichier est là.", "Elle le retrouve depuis n'importe quel poste du réseau."] },
+    { "id": "3.6", "phrases": ["Attention : le serveur ne fournit pas l'électricité aux appareils.", "Il gère les accès et stocke les données."] },
+    { "id": "3.7", "phrases": ["Au collège, c'est exactement pareil.", "Le serveur se trouve dans le bureau de la responsable informatique.", "Quand tu te connectes, il vérifie ton identifiant et ton mot de passe,", "puis il te rend ton espace personnel, quel que soit l'ordinateur."] },
+    { "id": "3.8", "phrases": ["À vous : pourquoi retrouves-tu ton dossier sur n'importe quel ordinateur de la salle ?"] }
+  ]
+}

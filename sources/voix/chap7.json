@@ -1,0 +1,12 @@
+{
+  "chapitre": 7,
+  "plans": [
+    { "id": "7.0", "phrases": ["Chapitre sept : mission maintenance.", "Aujourd'hui, le technicien, c'est toi."] },
+    { "id": "7.1", "phrases": ["Premier appel.", "Au café comme au collège, les ordinateurs s'échangent des fichiers sans problème.", "Mais impossible d'envoyer ou de recevoir quoi que ce soit depuis l'extérieur.", "Modem ou routeur ?"] },
+    { "id": "7.2", "phrases": ["C'est le modem.", "Le réseau local fonctionne, mais rien ne passe sur la ligne de l'opérateur :", "la traduction entre le signal de la ligne et les données numériques ne se fait plus."] },
+    { "id": "7.3", "phrases": ["Deuxième appel.", "La ligne extérieure fonctionne, mais les pages arrivent au hasard :", "la commande en ligne sort en cuisine au lieu de la caisse.", "Au collège, la page de la vie scolaire arrive en salle de technologie ou au CDI.", "Modem ou routeur ?"] },
+    { "id": "7.4", "phrases": ["C'est le routeur.", "Les adresses i-pé ne sont plus lues : l'aiguillage des paquets ne se fait plus."] },
+    { "id": "7.5", "phrases": ["Retiens : rien ne sort, c'est le modem.", "Les paquets arrivent au mauvais endroit, c'est le routeur."] },
+    { "id": "7.6", "phrases": ["Dernier appel : plus aucun appareil ne communique, même à l'intérieur du café.", "Modem, routeur… ou un autre matériel ? À vous !"] }
+  ]
+}

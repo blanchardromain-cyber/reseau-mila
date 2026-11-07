@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>%%TITRE%%</title>
+<style>
+  :root { --nuit: #0b1d3a; --or: #ffc94a; --local: #2f7de1; --wifi: #6fc3ff; --donnees: #ff8a1c; --internet: #98a3b0; --secu: #e5484d; --panne: #ffcf33;
+    --police: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; }
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; font-family: var(--police); }
+  #cadre { position: fixed; inset: 0; cursor: pointer; user-select: none; }
+  #stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: center; overflow: hidden; background: var(--nuit); }
+  #gl { position: absolute; inset: 0; width: 1920px; height: 1080px; display: block; }
+  #ui { position: absolute; inset: 0; pointer-events: none; color: #fff; }
+  #ui::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,0,0,0) 58%, rgba(0,0,0,.38) 100%); }
+  .voile { position: absolute; inset: 0; background: #000; opacity: 0; }
+
+  .texte { position: absolute; white-space: nowrap; font-weight: 800; text-shadow: 0 4px 26px rgba(0,0,0,.65), 0 1px 3px rgba(0,0,0,.6); letter-spacing: -.01em; }
+  .mot { display: inline-block; white-space: pre; will-change: transform, opacity, filter; }
+  .texte.bas.l1 { left: 110px; bottom: 176px; font-size: 62px; }
+  .texte.bas.l2 { left: 110px; bottom: 96px; font-size: 62px; color: var(--or); }
+  .texte.titre { left: 0; right: 0; top: 190px; text-align: center; font-size: 132px; }
+  .texte.soustitre { left: 0; right: 0; top: 362px; text-align: center; font-size: 54px; color: var(--or); font-weight: 700; }
+  .texte.centre { left: 0; right: 0; top: 96px; text-align: center; font-size: 70px; }
+  .texte.centre.l2 { top: 200px; font-size: 50px; color: var(--or); font-weight: 700; }
+  .texte.etiquettePlan { left: 110px; top: 92px; font-size: 44px; padding: 10px 26px; background: rgba(11,29,58,.88); border-left: 7px solid var(--or); border-radius: 10px; text-shadow: none; }
+  .texte.question { left: 50%; top: 84px; transform: translateX(-50%); width: 1380px; white-space: normal; text-align: center; font-size: 60px; line-height: 1.22;
+    padding: 70px 60px 44px; background: rgba(11,29,58,.92); border: 4px solid var(--or); border-radius: 26px; text-shadow: none; box-shadow: 0 20px 60px rgba(0,0,0,.45); }
+  .texte.question::before { content: "Question à la classe"; position: absolute; left: 50%; top: -30px; transform: translateX(-50%); background: var(--or); color: var(--nuit);
+    font-size: 34px; padding: 8px 30px; border-radius: 40px; letter-spacing: .02em; }
+
+  .bandeau { position: absolute; left: 36px; top: 24px; font-size: 26px; opacity: .9; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+  .bandeau b { color: var(--or); }
+  .points { position: absolute; left: 0; right: 0; bottom: 30px; display: flex; justify-content: center; gap: 12px; }
+  .points i { width: 14px; height: 14px; border-radius: 10px; background: rgba(255,255,255,.28); transition: all .3s; }
+  .points i.vu { background: rgba(255,255,255,.7); }
+  .points i.actif { width: 44px; background: var(--or); }
+  .aide { position: absolute; left: 0; right: 0; bottom: 70px; text-align: center; font-size: 25px; opacity: .9; text-shadow: 0 2px 10px rgba(0,0,0,.8); transition: opacity .5s; }
+  kbd { display: inline-block; min-width: 1.4em; padding: 2px 8px; border-radius: 6px; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35); font-family: inherit; font-weight: 700; }
+  .demarrer { position: absolute; left: 50%; top: 690px; transform: translateX(-50%); pointer-events: auto; cursor: pointer; font: 800 46px var(--police);
+    color: var(--nuit); background: var(--or); border: 0; border-radius: 60px; padding: 22px 64px; box-shadow: 0 14px 40px rgba(0,0,0,.4); }
+  .demarrer:hover { filter: brightness(1.08); }
+  .titre-deco { position: absolute; inset: 0; transition: opacity .6s; }
+  .titre-deco::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 52% 30% at 50% 26%, rgba(11,29,58,.62), rgba(11,29,58,0)); }
+  .titre-deco .logo { position: absolute; left: 40px; top: 36px; background: #fff; border-radius: 14px; padding: 12px 16px; box-shadow: 0 8px 26px rgba(0,0,0,.25); }
+  .titre-deco .logo img { display: block; width: 166px; height: 88px; }
+  .titre-deco .auteur { position: absolute; right: 40px; bottom: 30px; font-size: 22px; opacity: .85; text-shadow: 0 2px 8px rgba(0,0,0,.7); }
+
+  .legende { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 980px; padding: 40px 56px 46px; visibility: hidden;
+    background: rgba(11,29,58,.9); border-left: 8px solid var(--or); border-radius: 22px; box-shadow: 0 24px 70px rgba(0,0,0,.45); }
+  .legende.plan, .legende.force { visibility: visible; }
+  .legende.force { opacity: 1 !important; }
+  .legende.force .ligne { opacity: 1 !important; transform: none !important; }
+  .legende h3 { margin: 0 0 26px; font-size: 52px; }
+  .legende .ligne { display: flex; align-items: center; gap: 26px; margin: 18px 0; }
+  .legende .ligne b { font-size: 46px; min-width: 330px; }
+  .legende .ligne small { font-size: 30px; opacity: .85; }
+  .pastille { width: 56px; height: 56px; border-radius: 14px; flex: none; box-shadow: 0 0 22px currentColor; }
+  .pastille.donnees { background: var(--donnees); color: var(--donnees); }
+  .pastille.local { background: var(--local); color: var(--local); }
+  .pastille.internet { background: var(--internet); color: var(--internet); }
+  .pastille.securite { background: var(--secu); color: var(--secu); }
+  .pastille.panne { background: var(--panne); color: var(--panne); }
+  .muet { position: absolute; right: 36px; top: 24px; font-size: 24px; padding: 6px 16px; border-radius: 30px; background: rgba(0,0,0,.55); opacity: 0; }
+  .muet.visible { opacity: 1; }
+
+  .vignette { position: absolute; left: 1372px; top: 150px; width: 500px; height: 300px; box-sizing: border-box; border: 5px solid #fff; border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0,0,0,.45); opacity: 0; }
+  .vignette span { position: absolute; left: -5px; top: -46px; background: var(--local); padding: 6px 20px; border-radius: 10px 10px 0 0; font-size: 28px; font-weight: 800; }
+  .vignette em { position: absolute; left: -10px; right: -10px; top: 100%; margin-top: 10px; text-align: center; font-style: normal; font-size: 28px; font-weight: 700; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,.8); }
+
+  .partage { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+  .partage i { position: absolute; left: 957px; top: 0; bottom: 0; width: 6px; background: #fff; box-shadow: 0 0 18px rgba(0,0,0,.4); }
+  .partage span { position: absolute; top: 172px; transform: translateX(-50%); padding: 6px 22px; border-radius: 30px; font-size: 30px; font-weight: 800;
+    background: rgba(11,29,58,.88); white-space: nowrap; }
+  .partage .g { left: 480px; } .partage .d { left: 1440px; background: var(--local); }
+  .panneau.etat { padding: 10px 22px; border-radius: 12px; font-size: 30px; font-weight: 700; background: rgba(11,29,58,.9); border-left: 6px solid var(--or); white-space: nowrap; }
+  .panneau.etat.ok { border-left-color: #2fae5a; color: #c9f5d6; background: rgba(8,48,28,.92); }
+  .panneau.etat.ko { border-left-color: var(--panne); color: #ffe48a; background: rgba(46,34,0,.92); }
+  .panneau.etapes { padding: 14px 24px; border-radius: 16px; background: rgba(11,29,58,.9); text-align: center; white-space: nowrap; }
+  .panneau.etapes .etapes { display: flex; align-items: center; gap: 8px; font-size: 26px; font-weight: 700; }
+  .panneau.etapes .etapes span { padding: 4px 12px; border-radius: 10px; background: rgba(255,255,255,.1); opacity: .55; }
+  .panneau.etapes .etapes span.on { background: var(--donnees); color: #1b1206; opacity: 1; }
+  .panneau.etapes .etapes i { font-style: normal; opacity: .6; }
+  .panneau.etapes b { display: block; margin-top: 8px; font-size: 30px; color: var(--or); }
+  .panneau.regles { width: 520px; padding: 18px 24px; border-radius: 16px; background: rgba(11,29,58,.92); border-left: 7px solid var(--secu);
+    display: flex; flex-direction: column; gap: 6px; font-size: 26px; font-weight: 600; }
+  .panneau.regles b { font-size: 30px; color: #ffd0d2; }
+  .panneau.majcarte { width: 560px; padding: 20px 26px; border-radius: 16px; background: rgba(11,29,58,.92); border-left: 7px solid var(--secu); }
+  .panneau.majcarte b { display: block; font-size: 30px; margin-bottom: 12px; }
+  .panneau.majcarte .barre { display: block; height: 22px; border-radius: 12px; background: rgba(255,255,255,.15); overflow: hidden; }
+  .panneau.majcarte .barre i { display: block; height: 100%; background: linear-gradient(90deg, var(--secu), #ff8a8f); }
+  .panneau.majcarte em { display: block; margin-top: 10px; font-style: normal; font-size: 28px; font-weight: 700; color: #c9f5d6; }
+  .etiq.antivirus { border-left-color: var(--secu); display: flex; gap: 10px; align-items: center; }
+  .etiq.antivirus span { padding: 2px 10px; border-radius: 8px; background: rgba(255,255,255,.1); opacity: .5; font-size: 26px; }
+  .etiq.antivirus span.on { background: var(--secu); opacity: 1; }
+  .panneau.retenir { display: flex; align-items: center; gap: 24px; padding: 24px 40px; border-radius: 20px; background: rgba(11,29,58,.94); border-left: 8px solid var(--or);
+    white-space: nowrap; box-shadow: 0 18px 50px rgba(0,0,0,.4); }
+  .panneau.retenir .symptome { font-size: 42px; font-weight: 700; }
+  .panneau.retenir i { font-style: normal; font-size: 48px; color: var(--or); }
+  .panneau.retenir b { font-size: 50px; color: var(--or); }
+  .panneau.retenir small { font-size: 34px; opacity: .85; }
+  .panneau.element { display: flex; align-items: center; gap: 16px; padding: 12px 30px; border-radius: 40px; background: rgba(11,29,58,.92); font-size: 44px; font-weight: 800; white-space: nowrap; }
+  .panneau.element .pastille { width: 36px; height: 36px; border-radius: 10px; }
+  .panneau.recap { width: 1180px; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 32px; border-radius: 18px;
+    background: rgba(11,29,58,.94); border-left: 8px solid var(--or); box-shadow: 0 14px 40px rgba(0,0,0,.35); }
+  .panneau.recap b { font-size: 40px; white-space: nowrap; }
+  .panneau.recap div { display: flex; gap: 12px; }
+  .chip { display: inline-flex; align-items: center; gap: 10px; padding: 6px 16px; border-radius: 30px; border: 3px solid; font-size: 30px; font-weight: 700; white-space: nowrap; }
+  .chip i { width: 18px; height: 18px; border-radius: 5px; }
+  .panneau.generique { width: 1000px; text-align: center; padding: 40px 50px 30px; border-radius: 24px; background: rgba(11,29,58,.82); }
+  .panneau.generique .logo { display: inline-block; background: #fff; border-radius: 14px; padding: 12px 16px; }
+  .panneau.generique .logo img { display: block; width: 166px; height: 88px; }
+  .panneau.generique h2 { font-size: 84px; margin: 24px 0 8px; }
+  .panneau.generique p { font-size: 32px; margin: 6px 0; opacity: .9; }
+  .panneau.generique .cr { font-size: 22px; opacity: .7; margin-top: 36px; }
+  .panneau.generique .auteur { font-size: 22px; opacity: .8; }
+  .panneau { position: absolute; left: 0; top: 0; visibility: hidden; }
+  .panneau.bilan { width: 620px; padding: 26px 34px 30px; background: rgba(11,29,58,.92); border-top: 7px solid var(--local); border-radius: 18px; box-shadow: 0 18px 50px rgba(0,0,0,.4); }
+  .panneau.bilan h4 { margin: 0 0 12px; font-size: 46px; }
+  .panneau.bilan p { margin: 12px 0 0; font-size: 31px; font-weight: 600; line-height: 1.25; padding-left: 52px; position: relative; }
+  .panneau.bilan p::before { position: absolute; left: 0; top: -2px; width: 38px; height: 38px; border-radius: 10px; text-align: center; font-weight: 800; line-height: 38px; }
+  .panneau.bilan .type { color: #cfe3ff; }
+  .panneau.bilan .type::before { content: "↔"; background: rgba(47,125,225,.35); }
+  .panneau.bilan .plus::before { content: "+"; background: #2fae5a; }
+  .panneau.bilan .moins::before { content: "−"; background: #b8860b; }
+  .etiq.ok { border-left-color: #2fae5a; color: #c9f5d6; background: rgba(8,48,28,.92); }
+  .etiq.refus { border-left-color: var(--secu); color: #ffd0d2; background: rgba(60,12,16,.92); }
+  .etiq.login { border-left-color: var(--local); padding: 12px 22px; }
+  .etiq .login { display: flex; flex-direction: column; gap: 4px; font-size: 26px; font-weight: 600; }
+  .etiq .login b { font-size: 28px; color: var(--or); }
+  .etiq .login code { font-family: Consolas, "Cascadia Mono", monospace; background: rgba(255,255,255,.12); padding: 0 8px; border-radius: 6px; }
+  .panneau.astre { font-size: 96px; filter: drop-shadow(0 6px 18px rgba(0,0,0,.5)); }
+  .panneau.barre { position: absolute; width: 220px; height: 220px; margin-top: -110px; border-radius: 50%; background: rgba(11,29,58,.88); border: 5px solid #fff;
+    display: flex; align-items: center; justify-content: center; }
+  .panneau.barre span { font-size: 120px; }
+  .panneau.barre b { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 210px; color: #fff; line-height: 1; text-shadow: 0 0 14px rgba(0,0,0,.7); }
+  .etiq.signal { display: flex; align-items: flex-end; gap: 10px; border-left-color: var(--wifi); }
+  .barres { display: inline-flex; align-items: flex-end; gap: 4px; height: 40px; }
+  .barres i { display: block; width: 9px; border-radius: 2px; background: rgba(255,255,255,.22); }
+  .barres i.on { background: var(--wifi); box-shadow: 0 0 10px var(--wifi); }
+
+  .etiq { position: absolute; left: 0; top: 0; padding: 8px 20px; background: rgba(11,29,58,.9); border-left: 6px solid var(--or); border-radius: 10px;
+    font-size: 30px; font-weight: 700; white-space: nowrap; box-shadow: 0 8px 22px rgba(0,0,0,.3); }
+  .etiq.compteur { font-size: 34px; border-left-color: var(--local); }
+  .etiq.compteur b { color: var(--or); font-size: 50px; margin-right: 6px; }
+  .etiq.panne { border-left-color: var(--panne); color: #ffe48a; background: rgba(46,34,0,.92); }
+  .etiq.local { border-left-color: var(--local); }
+  .etiq.secours { border-left-color: var(--wifi); color: #cfeeff; }
+  .etiq.carte { width: 400px; white-space: normal; text-align: center; padding: 14px 18px 18px; border-left: 0; border-top: 6px solid var(--local); }
+  .etiq.carte.bon { border-top-color: var(--or); box-shadow: 0 0 40px rgba(255,201,74,.35); }
+  .etiq.carte h4 { margin: 0; font-size: 42px; }
+  .etiq.carte p { margin: 6px 0 0; font-size: 28px; font-weight: 600; }
+  .etiq.carte .cab { color: var(--or); font-size: 34px; font-weight: 800; }
+  .pictos { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 12px; color: var(--or); font-size: 26px; }
+  .pictos span { margin-right: 14px; }
+
+  .fin { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(11,29,58,.82);
+    opacity: 0; transition: opacity .4s; pointer-events: none; }
+  .fin.visible { opacity: 1; pointer-events: auto; }
+  .fin h2 { font-size: 80px; margin: 0 0 50px; }
+  .fin .boutons { display: flex; gap: 28px; }
+  .fin button, .fin a.bouton { font: 700 36px var(--police); color: #fff; background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.5); border-radius: 50px;
+    padding: 18px 40px; cursor: pointer; text-decoration: none; }
+  .fin .principal { background: var(--or); color: var(--nuit); border-color: var(--or); }
+  .erreur3d { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; padding: 40px; text-align: center; color: #fff; font: 600 28px var(--police); background: var(--nuit); }
+</style>
+</head>
+<body>
+<div id="cadre"><div id="stage"><canvas id="gl"></canvas><div id="ui"></div></div></div>
+<div class="erreur3d" id="erreur3d">Cette animation a besoin de WebGL (affichage 3D), qui n'est pas disponible sur ce navigateur.<br>Essayez avec Chrome, Edge ou Firefox à jour.</div>
+<script>
+(function () {
+  var c = document.createElement('canvas');
+  var ok = !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl')));
+  if (!ok) { document.getElementById('erreur3d').style.display = 'flex'; window.__sans3d = true; }
+})();
+window.__REPERES = %%REPERES%%;
+window.__SUIVANT = %%SUIVANT%%;
+window.__LOGO = "%%LOGO%%";
+window.__VOIX = %%VOIX%%;
+</script>
+<script>if (!window.__sans3d) {
+%%CODE%%
+}</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le réseau de Mila</title>
+<style>
+  :root { --nuit: #0b1d3a; --nuit2: #16264d; --or: #ffc94a; --local: #2f7de1; --donnees: #ff8a1c;
+    --police: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; font-family: var(--police); color: #fff;
+    background: radial-gradient(ellipse at 50% -10%, #23407a 0%, var(--nuit2) 40%, var(--nuit) 100%); }
+  header { display: flex; align-items: center; gap: 28px; padding: 28px 40px 0; }
+  .logo { background: #fff; border-radius: 14px; padding: 10px 14px; flex: none; }
+  .logo img { display: block; width: 166px; height: 88px; }
+  .sp { font-size: clamp(15px, 1.6vw, 20px); opacity: .85; }
+  .sp b { color: var(--or); }
+  main { max-width: 1280px; margin: 0 auto; padding: 24px 40px 40px; }
+  h1 { font-size: clamp(40px, 6vw, 84px); margin: 26px 0 6px; letter-spacing: -.02em; }
+  .chapo { font-size: clamp(17px, 1.9vw, 24px); opacity: .9; margin: 0 0 30px; max-width: 900px; line-height: 1.4; }
+  .grille { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: 20px; }
+  .carte { position: relative; display: block; padding: 22px 22px 24px 22px; border-radius: 18px; background: rgba(255,255,255,.07);
+    border: 2px solid rgba(255,255,255,.14); color: inherit; text-decoration: none; transition: transform .2s, border-color .2s, background .2s; min-width: 0; }
+  a.carte:hover, a.carte:focus-visible { transform: translateY(-3px); border-color: var(--or); background: rgba(255,255,255,.12); outline: none; }
+  .num { display: inline-flex; width: 52px; height: 52px; border-radius: 14px; align-items: center; justify-content: center; font-size: 30px; font-weight: 800;
+    background: var(--or); color: var(--nuit); }
+  .carte h2 { font-size: 26px; margin: 14px 0 6px; }
+  .carte p { margin: 0; font-size: 17px; opacity: .85; line-height: 1.4; }
+  .attente { opacity: .5; }
+  .attente .num { background: rgba(255,255,255,.3); color: #fff; }
+  .attente em { position: absolute; right: 18px; top: 22px; font-style: normal; font-size: 15px; padding: 4px 12px; border: 1px solid rgba(255,255,255,.5); border-radius: 20px; }
+  .code { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 34px 0 0; font-size: 17px; opacity: .9; }
+  .code i { display: inline-block; width: 16px; height: 16px; border-radius: 4px; vertical-align: -2px; margin-right: 7px; }
+  .aide { margin-top: 16px; font-size: 16px; opacity: .75; }
+  kbd { padding: 1px 7px; border-radius: 5px; border: 1px solid rgba(255,255,255,.4); background: rgba(255,255,255,.12); font-family: inherit; }
+  footer { max-width: 1280px; margin: 0 auto; padding: 10px 40px 26px; font-size: 14px; opacity: .7; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+  @media (max-width: 600px) { header, main, footer { padding-left: 16px; padding-right: 16px; } header { flex-wrap: wrap; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><img src="%%LOGO%%" alt="Collège Saint-Pierre"></div>
+  <div class="sp">Technologie · 5<sup>e</sup> · Séquence 2 : Organiser un réseau numérique<br><b>Comment créer un réseau de données ?</b></div>
+</header>
+<main>
+  <h1>Le réseau de Mila</h1>
+  <p class="chapo">Mila ouvre une boulangerie-café. Elle veut relier sa caisse, sa tablette, ses imprimantes et son ordinateur, puis les connecter à Internet en toute sécurité. Huit chapitres pour suivre son projet, et le comparer au réseau du collège et à celui de la maison.</p>
+  <div class="grille">
+    %%CARTES%%
+  </div>
+  <div class="code">
+    <span><i style="background:#ff8a1c"></i>Données</span><span><i style="background:#2f7de1"></i>Réseau local</span>
+    <span><i style="background:#98a3b0"></i>Internet</span><span><i style="background:#e5484d"></i>Sécurité</span><span><i style="background:#ffcf33"></i>Panne</span>
+  </div>
+  <p class="aide">Dans un chapitre : <kbd>→</kbd>, <kbd>Espace</kbd> ou clic pour avancer · <kbd>←</kbd> revenir · <kbd>R</kbd> rejouer le plan · <kbd>M</kbd> couper la voix · <kbd>L</kbd> légende · <kbd>F</kbd> plein écran</p>
+</main>
+<footer><span>Romain Blanchard, professeur de Technologie</span><span>Voix : SIWIS (CC BY 4.0)</span></footer>
+</body>
+</html>

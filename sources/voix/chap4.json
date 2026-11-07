@@ -1,0 +1,15 @@
+{
+  "chapitre": 4,
+  "plans": [
+    { "id": "4.0", "phrases": ["Chapitre quatre : pannes !", "À gauche, le café de Mila. À droite, le collège."] },
+    { "id": "4.A1", "phrases": ["Panne A : le câble de l'imprimante de cuisine est débranché.", "Au collège, un ordinateur de la rangée A ne s'allume plus, et son câble est débranché.", "Que se passe-t-il ?"] },
+    { "id": "4.A2", "phrases": ["Seul cet appareil ne fonctionne plus.", "Les vingt-trois autres ordinateurs marchent normalement.", "En étoile, chaque poste a son propre câble vers le commutateur."] },
+    { "id": "4.B1", "phrases": ["Panne B : le commutateur est débranché du secteur.", "Que se passe-t-il ?"] },
+    { "id": "4.B2", "phrases": ["Tous les ordinateurs fixes perdent instantanément l'accès au réseau.", "Le commutateur est le point central : sans lui, plus aucune liaison filaire."] },
+    { "id": "4.C1", "phrases": ["Panne C : les tablettes s'éloignent très loin du bâtiment.", "Elles rament, puis se déconnectent.", "Pourquoi ?"] },
+    { "id": "4.C2", "phrases": ["La portée des ondes de la borne wifi est limitée,", "et les obstacles atténuent le signal."] },
+    { "id": "4.D1", "phrases": ["Panne D : le serveur tombe en panne en pleine séance.", "Que se passe-t-il ?"] },
+    { "id": "4.D2", "phrases": ["Les ordinateurs restent allumés : on peut encore naviguer.", "Mais impossible d'ouvrir sa session ou d'accéder à son espace personnel.", "Le serveur gère l'authentification et le stockage, pas l'électricité."] },
+    { "id": "4.9", "phrases": ["À vous : dans un réseau en étoile, quelle panne est la plus grave ?", "Pourquoi ?"] }
+  ]
+}
