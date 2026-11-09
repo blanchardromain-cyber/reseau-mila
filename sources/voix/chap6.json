@@ -5,7 +5,7 @@
     { "id": "6.1", "phrases": ["En s'ouvrant sur Internet, le réseau de Mila s'expose aussi aux menaces.", "Il doit être protégé, par du matériel et par des logiciels."] },
     { "id": "6.2", "phrases": ["La passerelle est une protection physique :", "une barrière, le point de passage unique entre le réseau interne et l'extérieur."] },
     { "id": "6.3", "phrases": ["Première menace : un pirate, à l'autre bout du monde, tente d'entrer par un port de connexion ouvert.", "Le pare-feu analyse le trafic et bloque les intrusions selon des règles précises."] },
-    { "id": "6.4", "phrases": ["Deuxième menace : Hugo branche une clé u-esse-bé infectée.", "Elle ne passe pas par Internet : le pare-feu ne la voit pas.", "Le logiciel malveillant attaque le disque.", "C'est l'antivirus qui le détecte, le neutralize et le supprime."] },
+    { "id": "6.4", "phrases": ["Deuxième menace : Hugo branche une clé u-esse-bé infectée.", "Elle ne passe pas par Internet : le pare-feu ne la voit pas.", "Le logiciel malveillant attaque le disque.", "C'est l'antivirus qui le détecte, le neutralise, et le supprime."] },
     { "id": "6.5", "phrases": ["Troisième menace : un inconnu entre dans la réserve et branche son ordinateur directement sur le commutateur.", "Il contourne la passerelle, le seul point d'entrée officiel du réseau."] },
     { "id": "6.6", "phrases": ["Pour rester efficaces, le pare-feu et l'antivirus doivent être mis à jour."] },
     { "id": "6.7", "phrases": ["Au collège, une passerelle et un pare-feu protègent l'entrée du réseau, et un antivirus surveille chaque poste."] },
